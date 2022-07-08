@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import Estudante from "./estudante";
 
 @Entity("tarefas")
 export default class Tarefa {
@@ -10,4 +17,8 @@ export default class Tarefa {
 
   @Column()
   dataEntrega: Date;
+
+  @ManyToOne(() => Estudante)
+  @JoinTable({ name: "estudante_id" })
+  estudantes: Estudante[];
 }
