@@ -7,7 +7,7 @@ export class CreateEstudantes1657287262451 implements MigrationInterface {
         name: "estudantes",
         columns: [
           {
-            name: "estudante_id",
+            name: "id",
             type: "int",
             isPrimary: true,
             isGenerated: true,
