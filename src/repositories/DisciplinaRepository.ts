@@ -2,7 +2,7 @@ import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Disciplina } from "../entities/disciplina";
 
-export default class ClassRepository {
+export default class DisciplinaRepository {
   private repository: Repository<Disciplina>;
 
   constructor() {
