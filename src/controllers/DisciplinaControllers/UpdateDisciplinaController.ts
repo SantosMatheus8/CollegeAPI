@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { UpdateDisciplinaService } from "../../services/DisciplinaServices/UpdateDisciplinaService";
 
-export class UpdateClassController {
+export class UpdateDisciplinaController {
   async handle(request: Request, response: Response): Promise<Response> {
     const id = Number(request.params.id);
     const { nome, cargaHoraria, estudantes } = request.body;
