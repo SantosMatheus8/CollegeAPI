@@ -5,10 +5,12 @@ import { GetAllTarefasController } from "../controllers/TarefaControllers/GetAll
 import { GetTarefaByIdController } from "../controllers/TarefaControllers/GetTarefaByIdController";
 import { UpdateTarefaController } from "../controllers/TarefaControllers/UpdateTarefaController";
 
-const routes = Router();
+const tarefaRouter = Router();
 
-routes.post("/tarefa", new CreateTarefaController().handle);
-routes.get("/tarefa", new GetAllTarefasController().handle);
-routes.get("/tarefa/:id", new GetTarefaByIdController().handle);
-routes.put("/tarefa/:id", new UpdateTarefaController().handle);
-routes.delete("/tarefa/:id", new DeleteTarefaController().handle);
+tarefaRouter.post("/", new CreateTarefaController().handle);
+tarefaRouter.get("/", new GetAllTarefasController().handle);
+tarefaRouter.get("/:id", new GetTarefaByIdController().handle);
+tarefaRouter.put("/:id", new UpdateTarefaController().handle);
+tarefaRouter.delete("/:id", new DeleteTarefaController().handle);
+
+export default tarefaRouter;

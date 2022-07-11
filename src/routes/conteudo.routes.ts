@@ -5,10 +5,12 @@ import { GetAllConteudoController } from "../controllers/ConteudoControllers/Get
 import { GetConteudoByIdController } from "../controllers/ConteudoControllers/GetConteudoByIdController";
 import { UpdateConteudoController } from "../controllers/ConteudoControllers/UpdateConteudoController";
 
-const routes = Router();
+const conteudoRouter = Router();
 
-routes.post("/conteudo", new CreateConteudoController().handle);
-routes.get("/conteudo", new GetAllConteudoController().handle);
-routes.get("/conteudo/:id", new GetConteudoByIdController().handle);
-routes.put("/conteudo/:id", new UpdateConteudoController().handle);
-routes.delete("/conteudo/:id", new DeleteConteudoController().handle);
+conteudoRouter.post("/", new CreateConteudoController().handle);
+conteudoRouter.get("/", new GetAllConteudoController().handle);
+conteudoRouter.get("/:id", new GetConteudoByIdController().handle);
+conteudoRouter.put("/:id", new UpdateConteudoController().handle);
+conteudoRouter.delete("/:id", new DeleteConteudoController().handle);
+
+export default conteudoRouter;

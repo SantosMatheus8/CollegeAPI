@@ -5,12 +5,12 @@ import { GetAllDisciplinasController } from "../controllers/DisciplinaController
 import { GetDisciplinaByIdController } from "../controllers/DisciplinaControllers/GetDisciplinaByIdController";
 import { UpdateDisciplinaController } from "../controllers/DisciplinaControllers/UpdateDisciplinaController";
 
-const routes = Router();
+const disciplinaRouter = Router();
 
-routes.post("/class", new CreateDisciplinaController().handle);
-routes.get("/class", new GetAllDisciplinasController().handle);
-routes.get("/class/:id", new GetDisciplinaByIdController().handle);
-routes.put("/class/:id", new UpdateDisciplinaController().handle);
-routes.delete("/class/:id", new DeleteDisciplinaController().handle);
+disciplinaRouter.post("/", new CreateDisciplinaController().handle);
+disciplinaRouter.get("/", new GetAllDisciplinasController().handle);
+disciplinaRouter.get("/:id", new GetDisciplinaByIdController().handle);
+disciplinaRouter.put("/:id", new UpdateDisciplinaController().handle);
+disciplinaRouter.delete("/:id", new DeleteDisciplinaController().handle);
 
-export default routes;
+export default disciplinaRouter;

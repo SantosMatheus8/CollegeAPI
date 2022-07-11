@@ -5,10 +5,12 @@ import { GetAllEstudantesController } from "../controllers/EstudanteControllers/
 import { GetEstudanteByIdController } from "../controllers/EstudanteControllers/GetEstudanteByIdController";
 import { UpdateEstudanteController } from "../controllers/EstudanteControllers/UpdateEstudanteController";
 
-const routes = Router();
+const estudanteRouter = Router();
 
-routes.post("/estudante", new CreateEstudanteController().handle);
-routes.get("/estudante", new GetAllEstudantesController().handle);
-routes.get("/estudante/:id", new GetEstudanteByIdController().handle);
-routes.put("/estudante/:id", new UpdateEstudanteController().handle);
-routes.delete("/estudante/:id", new DeleteEstudanteController().handle);
+estudanteRouter.post("/", new CreateEstudanteController().handle);
+estudanteRouter.get("/", new GetAllEstudantesController().handle);
+estudanteRouter.get("/:id", new GetEstudanteByIdController().handle);
+estudanteRouter.put("/:id", new UpdateEstudanteController().handle);
+estudanteRouter.delete("/:id", new DeleteEstudanteController().handle);
+
+export default estudanteRouter;
