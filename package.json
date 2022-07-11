@@ -4,14 +4,16 @@
    "description": "Projeto desenvolvido para treinar TypeORM",
    "type": "commonjs",
    "devDependencies": {
-      "ts-node": "10.7.0",
+      "@types/bcryptjs": "^2.4.2",
       "@types/node": "^16.11.10",
+      "ts-node": "10.7.0",
       "typescript": "4.5.2"
    },
    "dependencies": {
-      "typeorm": "0.3.6",
+      "bcryptjs": "^2.4.3",
+      "mysql": "^2.14.1",
       "reflect-metadata": "^0.1.13",
-      "mysql": "^2.14.1"
+      "typeorm": "0.3.6"
    },
    "scripts": {
       "start": "ts-node src/index.ts",
