@@ -2,10 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Disciplina } from "./disciplina";
 import Tarefa from "./tarefa";
 
 @Entity("estudantes")
@@ -24,6 +26,12 @@ export default class Estudante {
 
   @Column()
   dataNascimento: Date;
+
+  @ManyToMany(() => Disciplina, (disciplina) => disciplina.estudantes)
+  disciplina: Disciplina;
+
+  @OneToMany(() => Tarefa, (tarefa) => tarefa.estudantes)
+  tarefa: Tarefa;
 
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date;

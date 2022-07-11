@@ -20,7 +20,7 @@ export default class Conteudo {
   @Column({ length: 255 })
   linkConteudo: string;
 
-  @OneToOne(() => Disciplina)
+  @OneToOne(() => Disciplina, (disciplina) => disciplina.conteudo)
   @JoinColumn({ name: "disciplina_id" })
   disciplina: Disciplina;
 

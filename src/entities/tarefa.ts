@@ -18,7 +18,7 @@ export default class Tarefa {
   @Column()
   dataEntrega: Date;
 
-  @ManyToOne(() => Estudante)
+  @ManyToOne(() => Estudante, (estudante) => estudante.tarefa)
   @JoinTable({ name: "estudante_id" })
   estudantes: Estudante[];
 }
