@@ -1,5 +1,5 @@
-import { AppDataSource } from "../../data-source";
 import Estudante from "../../entities/estudante";
+import EstudanteRepository from "../../repositories/EstudanteRepository";
 
 type GetEstudanteByIdDTO = {
   id: number;
@@ -7,9 +7,8 @@ type GetEstudanteByIdDTO = {
 
 export class GetEstudanteByIdService {
   async execute({ id }: GetEstudanteByIdDTO): Promise<Estudante | Error> {
-    const repo = AppDataSource.getRepository(Estudante);
-
-    const estudante = await repo.findOne({ where: { id } });
+    const estudanteRepository = new EstudanteRepository();
+    const estudante = await estudanteRepository.findById(id);
 
     if (!estudante) {
       return new Error("Estudante informado não existe");
