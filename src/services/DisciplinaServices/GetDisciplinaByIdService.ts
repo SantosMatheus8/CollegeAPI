@@ -1,12 +1,12 @@
 import { Disciplina } from "../../entities/disciplina";
 import DisciplinaRepository from "../../repositories/DisciplinaRepository";
 
-type GetClassByIdDTO = {
+type GetDisciplinaByIdDTO = {
   id: number;
 };
 
-export class GetClassByIdService {
-  async execute({ id }: GetClassByIdDTO): Promise<Disciplina | Error> {
+export class GetDisciplinaByIdService {
+  async execute({ id }: GetDisciplinaByIdDTO): Promise<Disciplina | Error> {
     const disciplinaRepository = new DisciplinaRepository();
     const disciplina = await disciplinaRepository.findById(id);
 
