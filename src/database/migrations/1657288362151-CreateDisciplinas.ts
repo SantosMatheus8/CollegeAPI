@@ -14,11 +14,6 @@ export class CreateDisciplinas1657288362151 implements MigrationInterface {
             generationStrategy: "increment",
           },
           {
-            name: "estudante_id",
-            type: "int",
-            isPrimary: true,
-          },
-          {
             name: "nome",
             type: "varchar",
             length: "45",
@@ -36,13 +31,6 @@ export class CreateDisciplinas1657288362151 implements MigrationInterface {
             name: "updated_at",
             type: "timestamp",
             default: "CURRENT_TIMESTAMP",
-          },
-        ],
-        foreignKeys: [
-          {
-            columnNames: ["estudante_id"],
-            referencedTableName: "estudantes",
-            referencedColumnNames: ["id"],
           },
         ],
       })
