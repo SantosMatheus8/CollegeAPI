@@ -3,11 +3,11 @@ import { CreateTarefaService } from "../../services/TarefaServices/CreateTarefaS
 
 export class CreateTarefaController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { descricao, dataEntrega, estudantes } = request.body;
+    const { descricao, dataEntrega, estudanteId } = request.body;
 
     const servive = new CreateTarefaService();
 
-    const res = await servive.execute({ descricao, dataEntrega, estudantes });
+    const res = await servive.execute({ descricao, dataEntrega, estudanteId });
 
     if (res instanceof Error) {
       return response.status(400).json(res.message);
