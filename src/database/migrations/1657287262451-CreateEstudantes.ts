@@ -26,7 +26,7 @@ export class CreateEstudantes1657287262451 implements MigrationInterface {
           {
             name: "senha",
             type: "varchar",
-            length: "18",
+            length: "255",
           },
           {
             name: "data_nascimento",

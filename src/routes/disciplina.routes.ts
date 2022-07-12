@@ -4,6 +4,7 @@ import { DeleteDisciplinaController } from "../controllers/DisciplinaControllers
 import { GetAllDisciplinasController } from "../controllers/DisciplinaControllers/GetAllDisciplinasController";
 import { GetDisciplinaByIdController } from "../controllers/DisciplinaControllers/GetDisciplinaByIdController";
 import { UpdateDisciplinaController } from "../controllers/DisciplinaControllers/UpdateDisciplinaController";
+import { CreateEstudantesDisciplinasController } from "../controllers/EstudantesDisciplinasControllers/CreateEstudantesDisciplinasController";
 
 const disciplinaRouter = Router();
 
@@ -13,4 +14,8 @@ disciplinaRouter.get("/:id", new GetDisciplinaByIdController().handle);
 disciplinaRouter.put("/:id", new UpdateDisciplinaController().handle);
 disciplinaRouter.delete("/:id", new DeleteDisciplinaController().handle);
 
+disciplinaRouter.post(
+  "/estudantes/:id",
+  new CreateEstudantesDisciplinasController().handle
+);
 export default disciplinaRouter;

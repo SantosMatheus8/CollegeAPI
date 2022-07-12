@@ -11,12 +11,10 @@ export class CreateEstudantesDisciplinas1657626295037
           {
             name: "estudante_id",
             type: "int",
-            isPrimary: true,
           },
           {
             name: "disciplina_id",
             type: "int",
-            isPrimary: true,
           },
           {
             name: "created_at",

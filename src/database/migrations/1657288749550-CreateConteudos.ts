@@ -16,7 +16,6 @@ export class CreateConteudos1657288749550 implements MigrationInterface {
           {
             name: "disciplina_id",
             type: "int",
-            isPrimary: true,
           },
           {
             name: "descricao",
