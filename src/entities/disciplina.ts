@@ -19,11 +19,19 @@ export class Disciplina {
   @Column({ length: 255 })
   nome: string;
 
-  @Column()
+  @Column({ name: "carga_horaria" })
   cargaHoraria: number;
 
   @ManyToMany(() => Estudante, (estudante) => estudante.disciplina)
-  @JoinTable()
+  @JoinTable({
+    name: "estudantes_disciplinas",
+    joinColumn: {
+      name: "disciplina_id",
+    },
+    inverseJoinColumn: {
+      name: "estudante_id",
+    },
+  })
   estudantes: Estudante[];
 
   @OneToOne(() => Conteudo, (conteudo) => conteudo.disciplina)

@@ -1,21 +1,32 @@
-import { AppDataSource } from "../../data-source";
 import Conteudo from "../../entities/conteudo";
-import { Disciplina } from "../../entities/disciplina";
+import ConteudoRepository from "../../repositories/ConteudoRepository";
+import DisciplinaRepository from "../../repositories/DisciplinaRepository";
 
 type CreateConteudoDTO = {
   descricao: string;
   linkConteudo: string;
-  disciplina: Disciplina;
+  disciplinaId: number;
 };
 
 export class CreateConteudoService {
   async execute({
     descricao,
     linkConteudo,
-    disciplina,
+    disciplinaId,
   }: CreateConteudoDTO): Promise<Conteudo> {
-    const repo = AppDataSource.getRepository(Conteudo);
-    const res = await repo.save({ descricao, linkConteudo, disciplina });
+    const conteudoRepository = new ConteudoRepository();
+    const disciplinaRepository = new DisciplinaRepository();
+
+    const disciplina = await disciplinaRepository.findById(disciplinaId);
+
+    if (!disciplina) {
+      throw new Error("Disciplina não encontrada");
+    }
+    const res = await conteudoRepository.create({
+      descricao,
+      linkConteudo,
+      disciplina,
+    });
 
     return res;
   }

@@ -3,14 +3,14 @@ import { CreateConteudoService } from "../../services/ConteudoServices/CreateCon
 
 export class CreateConteudoController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { descricao, linkConteudo, disciplina } = request.body;
+    const { descricao, linkConteudo, disciplinaId } = request.body;
 
     const servive = new CreateConteudoService();
 
     const res = await servive.execute({
       descricao,
       linkConteudo,
-      disciplina,
+      disciplinaId,
     });
 
     if (res instanceof Error) {

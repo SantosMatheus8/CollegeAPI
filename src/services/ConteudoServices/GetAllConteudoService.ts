@@ -1,10 +1,10 @@
-import { AppDataSource } from "../../data-source";
 import Conteudo from "../../entities/conteudo";
+import ConteudoRepository from "../../repositories/ConteudoRepository";
 
 export class GetAllConteudoService {
   async execute(): Promise<Conteudo[]> {
-    const repo = AppDataSource.getRepository(Conteudo);
-    const conteudos = await repo.find();
+    const conteudoRepository = new ConteudoRepository();
+    const conteudos = await conteudoRepository.list();
 
     return conteudos;
   }

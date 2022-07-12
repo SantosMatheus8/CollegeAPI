@@ -17,7 +17,7 @@ export default class Conteudo {
   @Column({ length: 255 })
   descricao: string;
 
-  @Column({ length: 255 })
+  @Column({ name: "link_conteudo", length: 255 })
   linkConteudo: string;
 
   @OneToOne(() => Disciplina, (disciplina) => disciplina.conteudo)

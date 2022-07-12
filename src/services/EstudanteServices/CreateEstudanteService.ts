@@ -18,11 +18,12 @@ export class CreateEstudanteService {
   }: CreateEstudanteDTO): Promise<Estudante> {
     const estudanteRepository = new EstudanteRepository();
 
-    const senhaHash = await hash(senha, 8);
+    // const senhaHash = await hash(senha, 8);
+    dataNascimento = new Date(dataNascimento);
 
     const res = await estudanteRepository.create({
       nome,
-      senha: senhaHash,
+      senha,
       email,
       dataNascimento,
     });

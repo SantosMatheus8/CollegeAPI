@@ -24,7 +24,7 @@ export default class Estudante {
   @Column({ length: 18 })
   senha: string;
 
-  @Column()
+  @Column({ name: "data_nascimento" })
   dataNascimento: Date;
 
   @ManyToMany(() => Disciplina, (disciplina) => disciplina.estudantes)

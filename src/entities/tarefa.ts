@@ -15,7 +15,7 @@ export default class Tarefa {
   @Column({ length: 255 })
   descricao: string;
 
-  @Column()
+  @Column({ name: "data_entrega" })
   dataEntrega: Date;
 
   @ManyToOne(() => Estudante, (estudante) => estudante.tarefa)
